@@ -36,6 +36,12 @@ get '/send' do
 end
 
 post '/send' do
-  @message = params[:message]
+  message = params[:message]
+
+	if message.length <= 0
+		@error = 'Введите сообщение'
+		return erb :send
+	end
+
 	erb "Ваше сообщение: #{@message}"
 end
