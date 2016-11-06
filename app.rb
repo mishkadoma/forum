@@ -38,7 +38,7 @@ end
 post '/send' do
   message = params[:message]
 
-	if message.length <= 0
+	if message.strip.empty?
 		@error = 'Введите сообщение'
 		return erb :send
 	end
