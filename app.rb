@@ -2,6 +2,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'sqlite3'
 
 
 
@@ -19,5 +20,5 @@ end
 
 post '/send' do
   @message = params[:message]
-	erb :send
+	erb "Ваше сообщение: #{@message}"
 end
