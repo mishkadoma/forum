@@ -43,5 +43,7 @@ post '/send' do
 		return erb :send
 	end
 
+	@db.execute 'insert into posts (content, created_date) values (?, datetime())', [message]
+
 	erb "Ваше сообщение: #{message}"
 end
