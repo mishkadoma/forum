@@ -47,6 +47,13 @@ post '/send' do
 	end
 
 	@db.execute 'insert into posts (content, created_date) values (?, datetime())', [message]
-	redirect to ('/')
+	  redirect to ('/')
 
+end
+
+
+get '/details/:post_id' do
+	post_id = params[:post_id]
+
+	erb "Отображение результатов для поста номер #{post_id}"
 end
