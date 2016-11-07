@@ -47,6 +47,6 @@ post '/send' do
 	end
 
 	@db.execute 'insert into posts (content, created_date) values (?, datetime())', [message]
+	redirect to ('/')
 
-	erb "Ваше сообщение: #{message}"
 end

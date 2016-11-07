@@ -5,7 +5,10 @@
     <%= post['content'] %>
     <br />
     <br />
-    добавлен в <%= post['created_date'] %>
+    добавлено <%= post['created_date'] %>
+    <br />
+    <a href="/post/<%= post['id'] %>">Комментарии</a>
+    <br />
   </p>
   <hr />
 <% end %>
