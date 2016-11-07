@@ -43,5 +43,5 @@ post '/send' do
 		return erb :send
 	end
 
-	erb "Ваше сообщение: #{@message}"
+	erb "Ваше сообщение: #{message}"
 end
