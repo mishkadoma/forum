@@ -61,16 +61,23 @@ end
 
 
 get '/details/:post_id' do
-	post_id = params[:post_id]
+		post_id = params[:post_id]
 
-	results = @db.execute 'select * from posts where id = ?', [post_id]
-	@row = results[0]
-	erb :details
-end
+		results = @db.execute 'select * from posts where id = ?', [post_id]
+		@row = results[0]
+		erb :details
+	end
 
 post '/details/:post_id' do
 	post_id = params[:post_id]
 
 	message = params[:message]
-	erb "Вы ввели комент #{message} для поста #{post_id}"
+
+	@db.execute 'insert into comments
+	(content, created_date, post_id)
+	values (?, datetime(), ?)',
+	[message, post_id]
+
+
+	redirect to('/details/' + post_id)
 end
