@@ -7,6 +7,17 @@
 </p>
 <br />
 <h4>Комментарии</h4>
+<br />
+<% @comments.each do |comment| %>
+<p>
+  <%= comment['content'] %>
+  <br />
+  <br />
+  <span style="font-size: 75%; color: #999"> добавлено <%= comment['created_date'] %></span>
+</p>
+<hr />
+<% end %>
+
 <p>
   <form action="/details/<%= @row['id'] %>" method="post" role="form">
     <textarea class="form-control" rows="5" name="<%= :message %>" placeholder="Введите текст комментария"></textarea>
